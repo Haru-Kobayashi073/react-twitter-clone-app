@@ -15,7 +15,8 @@ import {
   Box, 
   Grid, 
   Typography, 
-  makeStyles 
+  makeStyles, 
+  useTheme
 } from '@material-ui/core';
 
 import SendIcon from "@material-ui/icons/Send";
@@ -58,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Auth:React.FC = () => {
   const classes = useStyles();
+  const signInGoogle = async () => {
+    await auth.signInWithPopup(provider).catch((err) => alert(err.message));
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -102,6 +106,15 @@ const Auth:React.FC = () => {
               className={classes.submit}
             >
               Sign In
+            </Button>
+            <Button
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={signInGoogle}
+            >
+              Sign In With Google
             </Button>
           </form>
         </div>
