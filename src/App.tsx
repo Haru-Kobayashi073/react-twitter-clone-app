@@ -33,7 +33,6 @@ const App: React.FC = () => {
       <div className={styles.app}>
         <Feed/>
       </div>
-      
     ): (<Auth/>)}
     </>
   );
